@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import loginImg from "../../assets/login/login.jpg";
+import loginImg from "../../assets/login/login.gif";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
@@ -74,26 +74,26 @@ const Login = () => {
                 {errors.password?.type === "required" && (
                   <p className="text-red-600">Password is required</p>
                 )}
-                <h6 className="mt-7 text-base font-medium text-center">
-                  Or Sign In With
-                </h6>
-                <div className="text-center">
-                  <SocialLogin></SocialLogin>
-                </div>
-                <h6  className="mt-4 text-center font-normal text-gray-700">
-                New user?
-                <NavLink
-                  to="/register"
-                  className=" underline text-red-500 font-bold ml-1"
-                >
-                  Register Here
-                </NavLink>
-              </h6>
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary rounded-xl">Login</button>
               </div>
             </form>
+            <h6 className=" text-base font-medium text-center">
+              Or Sign In With
+            </h6>
+            <div className="text-center">
+              <SocialLogin></SocialLogin>
+            </div>
+            <h6 className="my-4 text-center font-normal text-gray-700">
+              New user?
+              <NavLink
+                to="/register"
+                className=" underline text-red-500 font-bold ml-1"
+              >
+                Register Here
+              </NavLink>
+            </h6>
           </div>
         </div>
       </div>

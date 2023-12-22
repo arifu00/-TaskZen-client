@@ -1,7 +1,27 @@
 import { NavLink } from "react-router-dom";
 import Container from "../../../Components/Container/Container";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Nav = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Log Out Successful",
+          showConfirmButton: true,
+          timer: 1200,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navList = (
     <>
       <li>
@@ -46,16 +66,23 @@ const Nav = () => {
           Contact Us
         </NavLink>
       </li>
-      <li className="btn btn-outline text-lg rounded-lg btn-primary md:ml-12">
-        <NavLink
-          to="/login"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "" : ""
-          }
-        >
-          Login
-        </NavLink>
-      </li>
+      {user ? (
+        <li 
+        onClick={handleLogOut} className="btn btn-outline text-lg rounded-lg btn-primary md:ml-12">
+          Log Out
+        </li>
+      ) : (
+        <li className="btn btn-outline text-lg rounded-lg btn-primary md:ml-12">
+          <NavLink
+            to="/login"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "" : ""
+            }
+          >
+            Login
+          </NavLink>
+        </li>
+      )}
     </>
   );
   return (
