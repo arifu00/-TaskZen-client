@@ -17,7 +17,7 @@ const Banner = () => {
                 powerful and intuitive task management solution.
               </p>
               <div className="text-center">
-                <button className="btn btn-secondary  font-roboto text-xl">
+                <button className="btn btn-secondary hover:bg-[#089cff]  font-roboto text-xl">
                   <Link to="/dashboard">Let’s Explore</Link>
                 </button>
               </div>
