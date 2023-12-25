@@ -10,6 +10,7 @@ import AuthProviders from "./Providers/AuthProviders";
 import Register from "./Pages/Register/Register";
 import PrivateRoute from "./Routes/PrivateRoute";
 import Dashboard from "./Layout/Dashboard";
+import Profile from "./Pages/Dashboard_Pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,25 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        path: "all-task",
+        element: <PrivateRoute></PrivateRoute>
+      },
+      {
+        path: "create-task",
+        element: <PrivateRoute></PrivateRoute>
+      },
+      {
+        path: "manage-task",
+        element: <PrivateRoute></PrivateRoute>
+      },
+      {
+        path: "profile",
+        element: <PrivateRoute><Profile></Profile></PrivateRoute>
+      },
+    ]
   }
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
