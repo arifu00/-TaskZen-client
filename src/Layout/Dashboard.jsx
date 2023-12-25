@@ -6,7 +6,7 @@ const Dashboard = () => {
     <div>
       <div className="flex gap-4 min-h-screen">
         <Nav />
-        <Outlet  className="flex-1"/>
+        <Outlet  className=""/>
       </div>
     </div>
   );

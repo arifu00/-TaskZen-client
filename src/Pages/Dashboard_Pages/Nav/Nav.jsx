@@ -8,14 +8,14 @@ import { CgProfile } from "react-icons/cg";
 const Nav = () => {
   const navList = (
     <>
-      <li className="hover:text-red-400">
+      <li className="hover:text-red-600">
         <NavLink
           to="/dashboard/all-task"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "text-red-400 font-bold underline"
+              ? "text-[#304D30] font-bold underline"
               : ""
           }
         >
@@ -24,14 +24,14 @@ const Nav = () => {
           </div>
         </NavLink>
       </li>
-      <li  className="hover:text-red-400">
+      <li  className="hover:text-red-600">
         <NavLink
           to="/dashboard/create-task"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "text-red-400 font-bold underline"
+              ? "text-[#304D30] font-bold underline"
               : ""
           }
         >
@@ -40,14 +40,14 @@ const Nav = () => {
           </div>
         </NavLink>
       </li>
-      <li  className="hover:text-red-400">
+      <li  className="hover:text-red-600">
         <NavLink
           to="/dashboard/manage-task"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "text-red-400 font-bold underline"
+              ? "text-[#304D30] font-bold underline"
               : ""
           }
         >
@@ -56,14 +56,14 @@ const Nav = () => {
           </div>
         </NavLink>
       </li>
-      <li  className="hover:text-red-400">
+      <li  className="hover:text-red-600">
         <NavLink
           to="/dashboard/profile"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "text-red-400 font-bold underline"
+              ? "text-[#304D30] font-bold underline"
               : ""
           }
         >
@@ -77,7 +77,7 @@ const Nav = () => {
   return (
       <div className="flex font-lora -mt-5 ">
         {/* DashBoard menu item */}
-        <div className="w-32 md:w-52 lg:w-72 min-h-screen bg-[#264653] text-[#fff]">
+        <div className="w-32 md:w-52 lg:w-72 min-h-screen bg-[#8cc4ea] ">
           <div className="px-3 md:px-9 pt-10 mb-12">
             <Link to="/">
               <div className="flex gap-2 items-center text-base md:text-2xl lg:text-3xl">

@@ -11,6 +11,9 @@ import Register from "./Pages/Register/Register";
 import PrivateRoute from "./Routes/PrivateRoute";
 import Dashboard from "./Layout/Dashboard";
 import Profile from "./Pages/Dashboard_Pages/Profile/Profile";
+import CreateTask from "./Pages/Dashboard_Pages/CreateTask/CreateTask";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AllTasks from "./Pages/Dashboard_Pages/AllTasks/AllTasks";
 
 const router = createBrowserRouter([
   {
@@ -34,31 +37,51 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "all-task",
-        element: <PrivateRoute></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <AllTasks></AllTasks>
+          </PrivateRoute>
+        ),
       },
       {
         path: "create-task",
-        element: <PrivateRoute></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <CreateTask></CreateTask>
+          </PrivateRoute>
+        ),
       },
       {
         path: "manage-task",
-        element: <PrivateRoute></PrivateRoute>
+        element: <PrivateRoute></PrivateRoute>,
       },
       {
         path: "profile",
-        element: <PrivateRoute><Profile></Profile></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
-    ]
-  }
+    ],
+  },
 ]);
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProviders>
-      <RouterProvider router={router} />
-    </AuthProviders>
+    <QueryClientProvider client={queryClient}>
+      <AuthProviders>
+        <RouterProvider router={router} />
+      </AuthProviders>
+    </QueryClientProvider>
   </React.StrictMode>
 );
