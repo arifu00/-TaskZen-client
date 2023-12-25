@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Container from "../../../Components/Container/Container";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import Swal from "sweetalert2";
-
+import logo from "../../../assets/logo/to-do-list.png";
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -67,8 +67,10 @@ const Nav = () => {
         </NavLink>
       </li>
       {user ? (
-        <li 
-        onClick={handleLogOut} className="btn btn-outline text-lg rounded-lg btn-primary md:ml-12">
+        <li
+          onClick={handleLogOut}
+          className="btn btn-outline text-lg rounded-lg btn-primary md:ml-12"
+        >
           Log Out
         </li>
       ) : (
@@ -115,7 +117,12 @@ const Nav = () => {
                 </label>
               </div>
               <div className="flex-1 px-2 mx-2 justify-center lg:justify-start font-roboto text-xl md:text-3xl font-semibold">
-                TaskZen
+                <Link to="/">
+                  <div className="flex gap-2 items-center ">
+                    <img className="w-12 h-12 object-cover" src={logo} alt="" />
+                    TaskZen
+                  </div>
+                </Link>
               </div>
               <div className="flex-none hidden lg:block">
                 <ul className="menu menu-horizontal items-center text-base font-roboto">

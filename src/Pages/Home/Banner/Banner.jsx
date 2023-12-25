@@ -22,7 +22,7 @@ const Banner = () => {
                 </button>
               </div>
             </div>
-            <div className="lg:w-6/12">
+            <div className="lg:w-6/12 ">
               <img
                 className="object-cover w-full lg:h-[500px] rounded-lg"
                 src={bannerImg}
