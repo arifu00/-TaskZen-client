@@ -17,7 +17,7 @@ const CreateTask = () => {
     const taskDescription = form.taskDescription.value;
     const email = user?.email;
 
-    const task = { taskTitle, date, time, priority, taskDescription, email };
+    const task = { taskTitle, date, time, priority, taskDescription, email, status: "ongoing" };
     console.log(task);
     axiosSecure.post('tasks',task)
         .then(data => {

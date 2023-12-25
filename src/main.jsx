@@ -15,6 +15,9 @@ import CreateTask from "./Pages/Dashboard_Pages/CreateTask/CreateTask";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AllTasks from "./Pages/Dashboard_Pages/AllTasks/AllTasks";
 import UpdateTask from "./Pages/Dashboard_Pages/UpdateTask/UpdateTask";
+import ManageTask from "./Pages/Dashboard_Pages/ManageTask/ManageTask";
+import AboutUs from "./Pages/AboutUs/AboutUs";
+import Contact from "./Pages/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "aboutUS",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "contactUs",
+        element: <Contact></Contact>,
       },
       {
         path: "login",
@@ -70,11 +81,15 @@ const router = createBrowserRouter([
             <CreateTask></CreateTask>
           </PrivateRoute>
         ),
-       
       },
       {
         path: "manage-task",
-        element: <PrivateRoute></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <ManageTask></ManageTask>{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "profile",
