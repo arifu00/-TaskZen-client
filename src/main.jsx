@@ -14,6 +14,7 @@ import Profile from "./Pages/Dashboard_Pages/Profile/Profile";
 import CreateTask from "./Pages/Dashboard_Pages/CreateTask/CreateTask";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AllTasks from "./Pages/Dashboard_Pages/AllTasks/AllTasks";
+import UpdateTask from "./Pages/Dashboard_Pages/UpdateTask/UpdateTask";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "/dashboard",
     element: (
@@ -52,12 +54,23 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "updateTask/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateTask></UpdateTask>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/tasks/${params.id}`),
+      },
+      {
         path: "create-task",
         element: (
           <PrivateRoute>
             <CreateTask></CreateTask>
           </PrivateRoute>
         ),
+       
       },
       {
         path: "manage-task",

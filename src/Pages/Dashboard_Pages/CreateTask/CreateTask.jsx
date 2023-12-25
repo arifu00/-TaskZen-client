@@ -72,7 +72,7 @@ const CreateTask = () => {
             </option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
-            <option value="Heigh">Heigh</option>
+            <option value="High">High</option>
           </select>
         </div>
 

@@ -14,7 +14,7 @@ const AllTasks = () => {
       return res.data;
     },
   });
-  console.log(tasks, isLoading);
+  //   console.log(tasks, isLoading);
 
   if (tasks?.length === 0) {
     return (
@@ -35,7 +35,8 @@ const AllTasks = () => {
             className={`w-[300px] font-lora overflow-hidden  bg-[#8cc4ea] p-6 rounded`}
           >
             <h1 className="text-3xl text-slate-800 font-medium">
-              Task Title : <span className="first-letter:uppercase">{task.taskTitle}</span>
+              Task Title :{" "}
+              <span className="first-letter:uppercase">{task.taskTitle}</span>
             </h1>
             <h2 className="my-3">{task.taskDescription}</h2>
             <p className="mb-3 text-lg font-medium text-red-500">
@@ -47,12 +48,10 @@ const AllTasks = () => {
               <p>{task.date}</p>
               <p>{task.time}</p>
             </div>
-            <Link
-              className="px-3 py-1 text-white bg-rose-600 rounded mt-5"
-              to={`/updateTask/${task._id}`}
-            >
-              Update
+            <Link to={`/dashboard/updateTask/${task._id}`} className="px-3 py-1 text-white bg-rose-600 rounded mt-5">
+            Update
             </Link>
+            
           </div>
         ))}
       </div>
